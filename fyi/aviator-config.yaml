@@ -1,5 +1,5 @@
 owners:
-  - team: "og-testing/not-cool"
+  - team: "@aviator-og-testing/not-cool"
 
 notify_teams:
-  - team: "og-testing/just-fyi"
+  - team: "@aviator-og-testing/just-fyi"
