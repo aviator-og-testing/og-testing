@@ -1,0 +1,7 @@
+This is a small test commit.
+
+Huzzah!
+
+Yay!
+
+247f93cb799b4435b7b30571
