@@ -1,0 +1,3 @@
+This is a small test commit.
+
+80a0f79234ce3fc0d18101fc
