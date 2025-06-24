@@ -1,3 +1,0 @@
-This is a small test commit.
-
-1709ad657fb8d1e0b511bc5d
