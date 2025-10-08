@@ -1,0 +1,25 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Build C++ implementation
+      run: make cpp
+
+    - name: Build C implementation (expected to fail)
+      run: make c
+      continue-on-error: true
+
+    - name: Run compilation tests
+      run: test/test_compilation.sh
