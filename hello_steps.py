@@ -11,6 +11,7 @@ def main():
     print("Hello 5")
     # Step 6
     print("Hello 6")
+    # Step 7
     print("Hello 7")
     print("Hello 8")
     print("Hello 9")
