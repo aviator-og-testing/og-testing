@@ -3,6 +3,7 @@ def main():
     print("Hello 1")
     # Step 2
     print("Hello 2")
+    # Step 3
     print("Hello 3")
     print("Hello 4")
     print("Hello 5")
