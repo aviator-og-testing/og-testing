@@ -13,6 +13,7 @@ def main():
     print("Hello 6")
     # Step 7
     print("Hello 7")
+    # Step 8
     print("Hello 8")
     print("Hello 9")
     print("Hello 10")
