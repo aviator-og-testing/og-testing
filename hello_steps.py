@@ -9,10 +9,15 @@ def main():
     print("Hello 4")
     # Step 5
     print("Hello 5")
+    # Step 6
     print("Hello 6")
+    # Step 7
     print("Hello 7")
+    # Step 8
     print("Hello 8")
+    # Step 9
     print("Hello 9")
+    # Step 10
     print("Hello 10")
 
 
