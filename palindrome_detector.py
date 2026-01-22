@@ -56,15 +56,10 @@ def is_palindrome_basic(text):
         - Single character: Returns True (always a palindrome)
         - Case-sensitive: "Racecar" would return False (use case-insensitive version)
     """
-    # Handle edge case: empty strings are considered palindromes
     if not text:
         return True
 
-    # Python's slice notation [::-1] reverses the string
-    # Step -1 means traverse the string backwards from end to start
     reversed_text = text[::-1]
-
-    # Direct string comparison - Python compares character by character
     return text == reversed_text
 
 
@@ -106,30 +101,18 @@ def is_palindrome_two_pointer(text):
         - Single character: Loop doesn't execute, returns True
         - Two characters: Compares once, handles correctly
     """
-    # Handle edge case: empty strings are palindromes
     if not text:
         return True
 
-    # Initialize two pointers
-    # left starts at the beginning of the string (index 0)
     left = 0
-    # right starts at the end of the string (index len(text) - 1)
     right = len(text) - 1
 
-    # Continue while pointers haven't crossed
-    # When left >= right, we've checked all necessary pairs
     while left < right:
-        # Compare characters at current pointer positions
         if text[left] != text[right]:
-            # Mismatch found - not a palindrome
-            # Early return saves unnecessary comparisons
             return False
+        left += 1
+        right -= 1
 
-        # Characters match - move pointers toward center
-        left += 1   # Move left pointer forward
-        right -= 1  # Move right pointer backward
-
-    # All character pairs matched - it's a palindrome
     return True
 
 
@@ -172,15 +155,11 @@ def is_palindrome_case_insensitive(text):
         - Mixed case: "AaBbAa" becomes "aabbaa" - not a palindrome
         - Non-alphabetic characters: Numbers and symbols are case-insensitive anyway
     """
-    # Handle edge case: empty strings are palindromes
     if not text:
         return True
 
-    # Preprocessing: normalize to lowercase
-    # This ensures 'A' and 'a' are treated as the same character
     normalized = text.lower()
 
-    # Use the efficient two-pointer method on normalized string
     left = 0
     right = len(normalized) - 1
 
@@ -243,45 +222,24 @@ def is_palindrome_phrase(text):
         - Single word: Behaves like case-insensitive check
         - Numbers: Treated as valid characters (kept in cleaned string)
     """
-    # Handle edge case: empty strings are palindromes
     if not text:
         return True
 
-    # Preprocessing Step 1: Convert to lowercase
-    # This handles case-insensitive comparison (A = a)
     cleaned = text.lower()
-
-    # Preprocessing Step 2: Remove all non-alphanumeric characters
-    # This regex pattern [^a-z0-9] matches any character that is NOT:
-    # - a lowercase letter (a-z)
-    # - a digit (0-9)
-    # The re.sub function replaces all matches with empty string ''
-    # This removes: spaces, punctuation, special characters
-    # Examples:
-    #   "A man, a plan!" -> "amanaplan"
-    #   "race car" -> "racecar"
-    #   "Hello, World!" -> "helloworld"
     cleaned = re.sub(r'[^a-z0-9]', '', cleaned)
 
-    # Edge case check: if all characters were removed, consider it a palindrome
     if not cleaned:
         return True
 
-    # Apply two-pointer technique to cleaned string
     left = 0
     right = len(cleaned) - 1
 
     while left < right:
-        # Compare characters at symmetric positions
         if cleaned[left] != cleaned[right]:
-            # Mismatch found in cleaned string
             return False
-
-        # Move pointers toward center
         left += 1
         right -= 1
 
-    # All comparisons passed - it's a palindrome
     return True
 
 
@@ -319,15 +277,12 @@ def analyze_palindrome(text):
     }
 
 
-# Main execution block - runs when script is executed directly
-# Does not run when imported as a module
 if __name__ == "__main__":
     print("=" * 70)
     print("Palindrome Detection Script - Test Suite")
     print("=" * 70)
     print()
 
-    # Test Case 1: Simple palindrome (lowercase, no spaces)
     print("Test Case 1: Simple palindrome")
     print("-" * 50)
     test1 = "racecar"
@@ -338,7 +293,6 @@ if __name__ == "__main__":
     print(f"Phrase method: {is_palindrome_phrase(test1)}")
     print()
 
-    # Test Case 2: Not a palindrome
     print("Test Case 2: Not a palindrome")
     print("-" * 50)
     test2 = "hello"
@@ -349,7 +303,6 @@ if __name__ == "__main__":
     print(f"Phrase method: {is_palindrome_phrase(test2)}")
     print()
 
-    # Test Case 3: Palindrome with mixed case
     print("Test Case 3: Palindrome with mixed case")
     print("-" * 50)
     test3 = "RaceCar"
@@ -364,7 +317,6 @@ if __name__ == "__main__":
     print(f"  (True because ignores case)")
     print()
 
-    # Test Case 4: Famous palindrome phrase
     print("Test Case 4: Famous palindrome phrase")
     print("-" * 50)
     test4 = "A man a plan a canal Panama"
@@ -379,7 +331,6 @@ if __name__ == "__main__":
     print(f"  (True because ignores spaces and case)")
     print()
 
-    # Test Case 5: Palindrome phrase with punctuation
     print("Test Case 5: Palindrome phrase with punctuation")
     print("-" * 50)
     test5 = "Was it a car or a cat I saw?"
@@ -391,7 +342,6 @@ if __name__ == "__main__":
     print(f"  (Only phrase method returns True)")
     print()
 
-    # Test Case 6: Single character (edge case)
     print("Test Case 6: Single character (edge case)")
     print("-" * 50)
     test6 = "a"
@@ -400,7 +350,6 @@ if __name__ == "__main__":
     print(f"  (Single characters are always palindromes)")
     print()
 
-    # Test Case 7: Empty string (edge case)
     print("Test Case 7: Empty string (edge case)")
     print("-" * 50)
     test7 = ""
@@ -409,7 +358,6 @@ if __name__ == "__main__":
     print(f"  (Empty strings are considered palindromes by convention)")
     print()
 
-    # Test Case 8: Numeric palindrome
     print("Test Case 8: Numeric palindrome")
     print("-" * 50)
     test8 = "12321"
@@ -419,7 +367,6 @@ if __name__ == "__main__":
     print(f"  (All methods work with numeric strings)")
     print()
 
-    # Comprehensive analysis example
     print("=" * 70)
     print("Comprehensive Analysis Example")
     print("=" * 70)
