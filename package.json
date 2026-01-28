@@ -1,0 +1,19 @@
+{
+  "name": "og-testing",
+  "version": "1.0.0",
+  "description": "TypeScript Hello World project",
+  "main": "dist/hello.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/hello.js",
+    "dev": "ts-node src/hello.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
