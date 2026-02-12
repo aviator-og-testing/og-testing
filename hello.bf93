@@ -1,0 +1,39 @@
+Befunge-93 "Hello World" Program
+==================================
+Befunge is a two-dimensional esoteric programming language where the program counter
+can move in four directions: right (>), left (<), up (^), and down (v).
+
+Program:
+--------
+"dlroW olleH">:#,_@
+
+Execution Flow:
+---------------
+1. Start at top-left (0,0), moving right by default
+2. " enters string mode - characters are pushed to stack as ASCII values
+3. "dlroW olleH" pushes "Hello World" in REVERSE (stack is LIFO)
+4. " exits string mode
+5. > sets direction to right (redundant but explicit)
+6. : duplicates top of stack
+7. # skips next instruction
+8. , pops and outputs character as ASCII
+9. _ is horizontal IF: pops value, goes right if 0, left if non-zero
+   - If stack not empty (non-zero), goes LEFT back to ":"
+   - If stack empty (zero), goes RIGHT to "@"
+10. @ terminates program
+
+The loop (:#,_) continues until all characters are printed.
+
+Direction Commands:
+> move right
+< move left
+^ move up
+v move down
+
+Key Commands Used:
+" toggle string mode (push ASCII values)
+: duplicate top of stack
+# bridge (skip next instruction)
+, pop and output as character
+_ horizontal conditional (pop: if 0 go right, else left)
+@ end program
