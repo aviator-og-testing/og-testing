@@ -1,0 +1,107 @@
+# Whitespace "Hello World" Program - Visible Representation
+
+Whitespace is an esoteric programming language where only spaces, tabs, and linefeeds are meaningful.
+All other characters are ignored, making programs appear completely blank in regular text editors.
+
+This file shows the visible representation of hello.ws using the notation:
+- [Space] = space character
+- [Tab] = tab character
+- [LF] = linefeed (newline) character
+
+## How Whitespace Works
+
+Whitespace uses three instruction types:
+- Stack Manipulation (starts with [Space])
+- Arithmetic (starts with [Tab][Space])
+- Heap Access (starts with [Tab][Tab])
+- Flow Control (starts with [LF])
+- I/O (starts with [Tab][LF])
+
+Numbers are encoded in binary using [Space] for 0 and [Tab] for 1, terminated by [LF].
+
+## The "Hello World" Program:
+
+Each line pushes an ASCII character onto the stack, then outputs it:
+
+Push 'H' (72):
+[Space][Space][Space][Tab][Space][Space][Tab][Space][Space][Space][LF]
+
+Print character:
+[Tab][LF][Space][Space]
+
+Push 'e' (101):
+[Space][Space][Space][Tab][Tab][Space][Space][Tab][Space][Tab][LF]
+
+Print character:
+[Tab][LF][Space][Space]
+
+Push 'l' (108):
+[Space][Space][Space][Tab][Tab][Space][Tab][Tab][Space][Space][LF]
+
+Print character:
+[Tab][LF][Space][Space]
+
+Push 'l' (108):
+[Space][Space][Space][Tab][Tab][Space][Tab][Tab][Space][Space][LF]
+
+Print character:
+[Tab][LF][Space][Space]
+
+Push 'o' (111):
+[Space][Space][Space][Tab][Tab][Space][Tab][Tab][Tab][Tab][LF]
+
+Print character:
+[Tab][LF][Space][Space]
+
+Push ' ' (32):
+[Space][Space][Space][Tab][Space][Space][Space][Space][Space][LF]
+
+Print character:
+[Tab][LF][Space][Space]
+
+Push 'W' (87):
+[Space][Space][Space][Tab][Space][Tab][Space][Tab][Tab][Tab][LF]
+
+Print character:
+[Tab][LF][Space][Space]
+
+Push 'o' (111):
+[Space][Space][Space][Tab][Tab][Space][Tab][Tab][Tab][Tab][LF]
+
+Print character:
+[Tab][LF][Space][Space]
+
+Push 'r' (114):
+[Space][Space][Space][Tab][Tab][Tab][Space][Space][Tab][Space][LF]
+
+Print character:
+[Tab][LF][Space][Space]
+
+Push 'l' (108):
+[Space][Space][Space][Tab][Tab][Space][Tab][Tab][Space][Space][LF]
+
+Print character:
+[Tab][LF][Space][Space]
+
+Push 'd' (100):
+[Space][Space][Space][Tab][Tab][Space][Space][Tab][Space][Space][LF]
+
+Print character:
+[Tab][LF][Space][Space]
+
+Exit program:
+[LF][LF][LF]
+
+## Character Breakdown:
+
+- H = 72  = 01001000 in binary
+- e = 101 = 01100101 in binary
+- l = 108 = 01101100 in binary
+- l = 108 = 01101100 in binary
+- o = 111 = 01101111 in binary
+- (space) = 32 = 00100000 in binary
+- W = 87  = 01010111 in binary
+- o = 111 = 01101111 in binary
+- r = 114 = 01110010 in binary
+- l = 108 = 01101100 in binary
+- d = 100 = 01100100 in binary
