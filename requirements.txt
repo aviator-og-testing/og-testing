@@ -1,0 +1,2 @@
+# Python dependencies for og-testing project
+# No external dependencies required for basic hello world
