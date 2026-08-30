@@ -1,0 +1,123 @@
+Whitespace Program: "nuqneH qo'" (Hello World in Klingon)
+===========================================================
+
+NOTATION:
+  S = Space (0x20)
+  T = Tab   (0x09)
+  L = Linefeed/Newline (0x0A)
+
+INSTRUCTION REFERENCE:
+  Stack Manipulation IMP: [S]
+    Push number onto stack: [S][S] [sign_bit] [binary_MSB_first] [L]
+      sign bit: S = positive, T = negative
+      binary:   S = 0, T = 1
+  I/O IMP: [T][L]
+    Output character from top of stack: [S][S]
+  Flow Control IMP: [L]
+    End program: [L][L]
+
+FULL INSTRUCTION SEQUENCE:
+---------------------------
+
+; ---- Push 'n' (ASCII 110 = binary 1101110) ----
+S S S  S T T S T T T S  L
+^IMP   ^cmd  ^+  ^binary^  ^term
+[push] [pos] [1 1 0 1 1 1 0]
+
+; ---- Output character ('n') ----
+T L S S
+^I/O    ^output_char
+
+; ---- Push 'u' (ASCII 117 = binary 1110101) ----
+S S S  S T T T S T S T  L
+[push] [pos] [1 1 1 0 1 0 1]
+
+; ---- Output character ('u') ----
+T L S S
+
+; ---- Push 'q' (ASCII 113 = binary 1110001) ----
+S S S  S T T T S S S T  L
+[push] [pos] [1 1 1 0 0 0 1]
+
+; ---- Output character ('q') ----
+T L S S
+
+; ---- Push 'n' (ASCII 110 = binary 1101110) ----
+S S S  S T T S T T T S  L
+[push] [pos] [1 1 0 1 1 1 0]
+
+; ---- Output character ('n') ----
+T L S S
+
+; ---- Push 'e' (ASCII 101 = binary 1100101) ----
+S S S  S T T S S T S T  L
+[push] [pos] [1 1 0 0 1 0 1]
+
+; ---- Output character ('e') ----
+T L S S
+
+; ---- Push 'H' (ASCII 72 = binary 1001000) ----
+S S S  S T S S T S S S  L
+[push] [pos] [1 0 0 1 0 0 0]
+
+; ---- Output character ('H') ----
+T L S S
+
+; ---- Push ' ' (ASCII 32 = binary 100000) ----
+S S S  S T S S S S S  L
+[push] [pos] [1 0 0 0 0 0]
+
+; ---- Output character (' ') ----
+T L S S
+
+; ---- Push 'q' (ASCII 113 = binary 1110001) ----
+S S S  S T T T S S S T  L
+[push] [pos] [1 1 1 0 0 0 1]
+
+; ---- Output character ('q') ----
+T L S S
+
+; ---- Push 'o' (ASCII 111 = binary 1101111) ----
+S S S  S T T S T T T T  L
+[push] [pos] [1 1 0 1 1 1 1]
+
+; ---- Output character ('o') ----
+T L S S
+
+; ---- Push "'" (ASCII 39 = binary 100111) ----
+S S S  S T S S T T T  L
+[push] [pos] [1 0 0 1 1 1]
+
+; ---- Output character ("'") ----
+T L S S
+
+; ---- Push newline (ASCII 10 = binary 1010) ----
+S S S  S T S T S  L
+[push] [pos] [1 0 1 0]
+
+; ---- Output character (newline) ----
+T L S S
+
+; ---- End program ----
+L L L
+
+
+EXPECTED OUTPUT:
+  nuqneH qo'
+
+RUNNING:
+  Use any Whitespace interpreter. Examples:
+    - wspace hello_klingon.ws          (wspace interpreter)
+    - whitespace hello_klingon.ws      (another common interpreter)
+    - ruby whitespace.rb hello_klingon.ws
+
+NOTE ON THE WHITESPACE FILE:
+  The hello_klingon.ws file contains ONLY spaces, tabs, and newlines.
+  All other characters (like comments) are ignored by Whitespace interpreters.
+  The file appears blank or empty when opened in a text editor because
+  it contains only invisible whitespace characters.
+
+ABOUT KLINGON:
+  "nuqneH qo'" is a greeting in Klingon, the constructed language created
+  for the Star Trek fictional Klingon species. "nuqneH" literally means
+  "What do you want?" but functions as a greeting, and "qo'" means "world".
